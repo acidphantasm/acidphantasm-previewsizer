@@ -15,11 +15,9 @@ namespace acidphantasm_previewsizer
         public static void InitConfig(ConfigFile config)
         {
             // General Settings
-            _actionPanel = config.Bind(ConfigGeneral, "Show Actions Panel of Item Window", false, new ConfigDescription("Enable or disable the action panel of the window.", null, new ConfigurationManagerAttributes { Order = loadOrder-- }));
-            _previewMinHeight = config.Bind(ConfigGeneral, "Item Preview Window Height", 350, new ConfigDescription("Changes the height of the item preview section of the window.", new AcceptableValueRange<int>(10, 350), new ConfigurationManagerAttributes { Order = loadOrder-- }));
-
-
-
+            _actionPanel = config.Bind(ConfigGeneral, "Show Actions Panel of Item Window", true, new ConfigDescription("Enable or disable the action panel of the window.", null, new ConfigurationManagerAttributes { Order = loadOrder-- }));
+            _previewMinHeight = config.Bind(ConfigGeneral, "Item Preview Window Height", 200, new ConfigDescription("Changes the height of the item preview section of the window.", new AcceptableValueRange<int>(10, 350), new ConfigurationManagerAttributes { Order = loadOrder-- }));
+            
             // Triggers
             _actionPanel.SettingChanged += SettingChanged;
             _previewMinHeight.SettingChanged += SettingChanged;

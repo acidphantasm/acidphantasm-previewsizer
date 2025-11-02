@@ -1,9 +1,10 @@
-﻿using acidphantasm_previewsizer.Patches;
+﻿using System;
+using acidphantasm_previewsizer.Patches;
 using BepInEx;
 
 namespace acidphantasm_previewsizer
 {
-    [BepInPlugin("com.acidphantasm.previewsizer", "acidphantasm-PreviewSizer", "1.0.1")]
+    [BepInPlugin("com.acidphantasm.previewsizer", "acidphantasm-PreviewSizer", "1.0.2")]
     public class Plugin : BaseUnityPlugin
     {
         public static bool _actionPanel;
@@ -11,6 +12,11 @@ namespace acidphantasm_previewsizer
 
         private void Awake()
         {
+            if (!VersionChecker.CheckEftVersion(Logger, Info, Config))
+            {
+                throw new Exception($"Invalid EFT Version");
+            }
+            
             new ItemInfoWindowLabelsPatch().Enable();
             new ItemSpecificationPanelPatch().Enable();
 
