@@ -19,10 +19,14 @@ namespace acidphantasm_previewsizer.Patches
         [PatchPostfix]
         static void Postfix(ItemInfoWindowLabels __instance, GameObject ____previewPanel)
         {
-            if (__instance == null) return;
+            if (__instance == null) 
+                return;
 
-            ____previewPanel.GetComponent<LayoutElement>().preferredHeight = Plugin._previewMinHeight;
-            ____previewPanel.GetComponent<LayoutElement>().minHeight = Plugin._previewMinHeight;
+            if (!____previewPanel.TryGetComponent<LayoutElement>(out var layoutElement)) 
+                return;
+            
+            layoutElement.preferredHeight = Plugin._previewMinHeight;
+            layoutElement.minHeight = Plugin._previewMinHeight;
         }
     }
 }

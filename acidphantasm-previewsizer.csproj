@@ -98,17 +98,14 @@
         <ItemGroup>
             <OutputDLL Include="$(TargetPath)" />
             <License Include="$(ProjectDir)LICENSE" Condition="Exists('$(ProjectDir)LICENSE')" />
-            <ServerComponents Include="$(ProjectDir)../Server/bin/Release/$(ProjectName)/*.*" />
         </ItemGroup>
 
         <!-- Copy to Tarkov plugin directory -->
         <Copy SourceFiles="@(OutputDLL);@(License)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(ProjectName)\" />
-        <Copy SourceFiles="@(ServerComponents)" DestinationFolder="$(TarkovDir)SPT\user\mods\$(ProjectName)\%(RecursiveDir)" />
 
         <!-- Create release ZIP -->
         <RemoveDir Directories="$(ProjectDir)release" />
         <Copy SourceFiles="@(OutputDLL);@(License)" DestinationFolder="$(ProjectDir)release\$(ProjectName)\BepInEx\plugins\$(ProjectName)\" />
-        <Copy SourceFiles="@(ServerComponents)" DestinationFolder="$(ProjectDir)release\$(ProjectName)\SPT\user\mods\$(ProjectName)\%(RecursiveDir)" />
         <ZipDirectory SourceDirectory="$(ProjectDir)release\$(ProjectName)\" DestinationFile="$(ProjectDir)release\$(ProjectName).zip" />
     </Target>
 </Project>

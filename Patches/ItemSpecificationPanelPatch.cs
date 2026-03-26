@@ -19,10 +19,7 @@ namespace acidphantasm_previewsizer.Patches
         [PatchPrefix]
         static bool Prefix(ItemSpecificationPanel __instance)
         {
-            if (__instance == null || Plugin._actionPanel) return true;
-
-            return false;
-
+            return __instance == null || !Plugin._actionPanel;
         }
     }
 }

@@ -4,7 +4,7 @@ using BepInEx;
 
 namespace acidphantasm_previewsizer
 {
-    [BepInPlugin("com.acidphantasm.previewsizer", "acidphantasm-PreviewSizer", "1.0.2")]
+    [BepInPlugin("com.acidphantasm.previewsizer", "acidphantasm-PreviewSizer", "1.0.3")]
     public class Plugin : BaseUnityPlugin
     {
         public static bool _actionPanel;
