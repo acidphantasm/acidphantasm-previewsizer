@@ -24,7 +24,7 @@ namespace acidphantasm_previewsizer
             {
                 return Assembly.GetExecutingAssembly()
                     .GetCustomAttributes(typeof(VersionChecker), false)
-                    ?.Cast<VersionChecker>()?.FirstOrDefault()?.version ?? 40087;
+                    ?.Cast<VersionChecker>()?.FirstOrDefault()?.version ?? 40743;
             }
         }
 

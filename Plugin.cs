@@ -4,11 +4,11 @@ using BepInEx;
 
 namespace acidphantasm_previewsizer
 {
-    [BepInPlugin("com.acidphantasm.previewsizer", "acidphantasm-PreviewSizer", "1.0.3")]
+    [BepInPlugin("com.acidphantasm.previewsizer", "acidphantasm-PreviewSizer", "1.1.0")]
     public class Plugin : BaseUnityPlugin
     {
-        public static bool _actionPanel;
-        public static int _previewMinHeight;
+        public static bool ActionPanel;
+        public static int PreviewMinHeight;
 
         private void Awake()
         {

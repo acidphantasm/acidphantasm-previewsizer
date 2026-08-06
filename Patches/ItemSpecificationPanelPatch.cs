@@ -1,11 +1,7 @@
 ﻿using HarmonyLib;
 using SPT.Reflection.Patching;
 using System.Reflection;
-using EFT;
 using EFT.UI;
-using EFT.UI.WeaponModding;
-using UnityEngine.UI;
-using UnityEngine;
 
 namespace acidphantasm_previewsizer.Patches
 {
@@ -13,13 +9,13 @@ namespace acidphantasm_previewsizer.Patches
     {
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(ItemSpecificationPanel), nameof(ItemSpecificationPanel.method_4));
+            return AccessTools.Method(typeof(ItemSpecificationPanel), nameof(ItemSpecificationPanel.InitInteractionButtonsPanel));
         }
 
         [PatchPrefix]
         static bool Prefix(ItemSpecificationPanel __instance)
         {
-            return __instance == null || !Plugin._actionPanel;
+            return __instance == null || !Plugin.ActionPanel;
         }
     }
 }

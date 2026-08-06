@@ -23,14 +23,14 @@ namespace acidphantasm_previewsizer
             _previewMinHeight.SettingChanged += SettingChanged;
 
             // Set Them Initially
-            Plugin._actionPanel = _actionPanel.Value;
-            Plugin._previewMinHeight = _previewMinHeight.Value;
+            Plugin.ActionPanel = _actionPanel.Value;
+            Plugin.PreviewMinHeight = _previewMinHeight.Value;
         }
 
         private static void SettingChanged(object sender, EventArgs e)
         {
-            Plugin._actionPanel = _actionPanel.Value;
-            Plugin._previewMinHeight = _previewMinHeight.Value;
+            Plugin.ActionPanel = _actionPanel.Value;
+            Plugin.PreviewMinHeight = _previewMinHeight.Value;
         }
     }
 }
